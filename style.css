@@ -1,0 +1,228 @@
+:root{
+    --bg-color: hsl(44,51%, 90%);
+    --typewriterSpeed: 6s;
+    --typewriterCharacters: 27; /*NUMBER SHOULD BE ASSOCIATED WITH CHARACTERS IN HEADER PLUS WHITE SPACES*/
+}
+
+*{
+    box-sizing: border-box;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+header{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right:0;
+    width: 100%;
+    padding: 10px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10000;
+}
+
+header .home-logo{
+    color: rgb(24,91,120);
+    font-weight: 500;
+    text-decoration: none;
+    font-size: 2em;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+header ul{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header ul li{
+    list-style: none;
+    margin-left: 30px;
+}
+
+header ul li a{
+    text-decoration: none;
+    padding: 6px 15px;
+    color: rgb(24,91,120);
+    border-radius: 20px;
+}
+
+header ul li a:hover, header u li a.active {
+    background:rgb(24,91,120);
+    color: #fff;
+}
+
+body{
+    margin:0;
+    font-family:'Times New Roman' serif;
+    min-height: 100vh;
+    display: grid;
+    place-content: center;
+    color: rgb(24,91,120);
+    text-align: center;
+    background: var(--bg-color);
+}
+
+/* TYPEWRITER EFFECT SECTION*/
+section{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+
+h1{
+    font-size: clamp(1rem, 3vw + 1rem, 4rem);
+    position: relative;
+    font-family: 'Courier New', monospace;
+    width: max-content;
+}
+
+h1::before,
+h1::after{
+    content: "";
+    position:absolute;
+    top:0;
+    bottom:0;
+    right:0;
+    left:0;
+}
+
+h1::before{
+    background: var(--bg-color);
+    animation: typewriter var(--typewriterSpeed)
+        steps(var(--typewriterCharacters)) 1s forwards;
+}
+
+h1::after{
+    width: 0.125em;
+    background: rgb(24,91,120);
+    animation: typewriter var(--typewriterSpeed)
+        steps(var(--typewriterCharacters)) 1s forwards,
+        blink 750ms steps(var(--typewriterCharacters)) infinite;
+}
+
+.subtitle{
+    color: hsl(198, 67%, 28% / 0.7);
+    font-size: 2rem;
+    font-weight: 400;
+    opacity: 0;
+    transform: translateY(3rem);
+    animation: fadeInUp 2s ease calc(var(--typewriterSpeed) + 2s) forwards;
+}
+
+@keyframes typewriter{
+    to{
+        left: 100%;
+    }
+}
+
+@keyframes blink {
+    to{
+        background: transparent;
+    }
+}
+
+@keyframes fadeInUp{
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* BUTTON */
+.btn{
+    background-color: rgb(24,91,120);
+    font-size: 12px;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: hsl(44,51%, 90%);
+    letter-spacing: 0.5px;
+    padding: 10px 20px;
+    border-radius: 5000px;
+    transition: all 0.3s;
+    align-items: center;
+    z-index: 2;
+}
+
+.btn:hover{
+    transform: scale(1.15);
+}
+
+.btn--contact{
+    animation: fade-down 0.5s 0.4s backwards;
+}
+
+.btn--download{
+    padding: 16px 32px;
+    font-size: 16px;
+    position: absolute;
+    bottom: 27px;
+    left: calc(50% - 96px);
+    animation: fade-up 0.5s 0.4s backwards;
+}
+
+/* UTILITIES */
+.u-bold{
+    font-weight: 500;
+}
+
+/* ABOUT SECTION*/
+.info-column{
+    float: left;
+    width: 50%;
+    padding: 10px;
+    height: 550px;
+}
+
+.info-column p{
+    font: 1.2rem;
+    font-weight: 300;
+    line-height: 25px;
+    color: rgb(24,91,120);
+}
+
+.info-column h2{
+    font-size: 2rem;
+    gap:5px;
+    color: rgb(24,91,120);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.about-section-container:after{
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.pic-column{
+    float: right;
+    padding: 50px;
+    position: relative;
+    top:10px;
+}
+
+.images-about{
+    width: 250px;
+    height: 350px;
+    float: right;
+}
+
+
+.swe-header{
+    font-size: 2rem;
+    color: rgb(24,91,120);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
